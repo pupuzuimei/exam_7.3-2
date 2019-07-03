@@ -70,32 +70,32 @@ int main() {
     {
         for(j=0;j<7;j++)
         {
-            t[i].score[j]=k[i].score[j];
+            a[i].score[j]=k[i].score[j];
         }
     }
     for(i=0;i<statistics;i++)//冒泡排序
-        sort(t[i].score,t[i].score+7);
+        sort(a[i].score,a[i].score+7);
     for(j=0;j<statistics;++j)//求平均分
     {
         for(i=1;i<6;++i)
         {
-            t[j].ave+=t[j].score[i];
+            a[j].ave+=a[j].score[i];
         }
-        t[j].ave/=5;
-    }
-    for(i=0;i<statistics;i++)//将平均分转到数组里
-    {
-        a[i].ave=t[i].ave;
+        a[j].ave/=5;
     }
     sort(a,a+statistics,cmp);//将平均分从大到小排序
-    
     if(inf.is_open())
     {
         for(int i=0;i<statistics;i++)
         {
-            inf<<a[i].number<<" "<<a[i].name<<" "<<a[i].sex<<" "<<a[i].age<<""<<a[i].phone<<" "<<a[i].ave<<endl;
+            inf<<a[i].number<<" "<<a[i].name<<" "<<a[i].sex<<" "<<a[i].age<<" "<<a[i].phone<<" "<<a[i].ave<<endl;
+            for(j=0;j<7;j++)
+            {
+                inf<<a[i].score[j];
+            }
         }
         inf.close();
     }
     return 0;
 }
+
